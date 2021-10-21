@@ -27,11 +27,11 @@ namespace ConversorDeArquivo
             helvetica24r.SetFont(fontCorpo).SetFontSize(24);
             #endregion
 
-            #region Parágrafos
-            Paragraph body = new Paragraph().SetTextAlignment(TextAlignment.LEFT).AddStyle(helvetica24r);
-            #endregion
+            StreamReader arquivoFileStream = new StreamReader(txt);
 
-            pdf.Add(body);
+            string conteudoTXT = arquivoFileStream.ReadToEnd();
+
+            pdf.Add(new Paragraph(conteudoTXT).AddStyle(helvetica24r));
 
             pdf.Close();
         }
