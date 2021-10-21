@@ -15,6 +15,7 @@ namespace ConversorDeArquivo
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
+            FileWatcher.Iniciar()
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
