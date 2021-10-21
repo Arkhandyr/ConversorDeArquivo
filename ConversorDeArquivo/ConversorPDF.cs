@@ -5,9 +5,8 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using System.Linq;
 
 namespace ConversorDeArquivo
 {
@@ -15,7 +14,10 @@ namespace ConversorDeArquivo
     {
         public static void GerarPDF(FileStream txt)
         {
-            var writer = new PdfWriter();
+            var nomeTXTCompleto = txt.Name.Split('\\').ToList().Last();
+            var nomeTXT = nomeTXTCompleto.Split('.').ToList().First() + ".pdf";
+
+            var writer = new PdfWriter(JsonConfig.Out_PDF + $"\\{nomeTXT}");
             var pdfDocument = new PdfDocument(writer);
             var pdf = new Document(pdfDocument);
 

@@ -22,7 +22,7 @@ namespace ConversorDeArquivo
                 .UseWindowsService()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddLogging(config => config.AddSerilog(Log.Logger));
+                    //services.AddLogging(config => config.AddSerilog(Log.Logger));
                     services.AddHostedService<Worker>();
                 });
     }
